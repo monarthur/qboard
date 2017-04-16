@@ -1,6 +1,8 @@
-test from github
-
+ställ dig i mappen som innehåller mappen du vill skapa projektet i (mappen som projektet ska in i heter testapp i detta exempel. ställ dig alltså i mappen som innehåller testapp):
 ng new testapp --skip-git --directory testapp --style=scss
+
+ställ dig i mappen testapp:
+git branch --set-upstream-to=origin/master
 
 # Qboard
 
