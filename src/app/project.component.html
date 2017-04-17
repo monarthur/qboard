@@ -1,0 +1,34 @@
+<h1>{{ project.name }}</h1>
+<section class="board">
+    <ol class="states">
+        <li *ngFor="let state of project.states"
+        (dragenter)="stateDragEnter($event)" (dragleave)="stateDragLeave($event)" (dragover)="stateDragOver($event)">
+            <h3>{{ state.name }}</h3>
+            <ul class="items">
+                <li *ngFor="let item of state.items" class="item"
+                draggable="true" (dragstart)="itemDragStart($event)" (dragend)="itemDragEnd($event)">
+                    {{ item.name }}
+                </li>
+            </ul>
+        </li>
+        <!--<li>
+            <h3>To do</h3>
+            <ul class="items">
+                <li id="issue1" class="item" draggable="true">Gör si eller så</li>
+                <li class="item">Något så djävulskt långt namn på en issue va</li>
+            </ul>
+        </li>
+        <li>
+            <h3>In progress</h3>
+            <ul class="items" id="state2">
+                <li class="item">Ett ärende va</li>
+            </ul>
+        </li>
+        <li>
+            <h3>Ready for test</h3>
+            <ul class="items">
+                <li class="item">Vad ska man göra här då</li>
+            </ul>
+        </li>-->
+    </ol>
+</section>

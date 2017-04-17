@@ -1,5 +1,87 @@
-/* You can add global styles to this file, and also import other style files */
-$test-color: #33ff33;
-html {
-    color: $test-color;
+@import url('https://fonts.googleapis.com/css?family=Lora|Noto+Serif');
+
+$gap: 20px;
+$gap-sm: 10px;
+$gap-lg: 40px;
+
+* { box-sizing: border-box; }
+html { 
+    font-size: 18px; 
+    font-family: 'Lora', Arial, Helvetica, sans-serif;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Noto Serif', Helvetica, sans-serif;
+}
+ul, ol { margin: 0; }
+.page-wrapper {
+  > header {
+    padding: $gap;
+    background-color: #dfd;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  > main {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+.board {
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+  padding: $gap 0;
+  .states, .items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+  }
+  .states { 
+    > li {
+      flex: 1;
+
+      &.is-dragged-over {
+        border: dashed 1px #ccc;
+
+        * {
+            pointer-events: none;
+        }
+      }
+    }
+    h3 {
+      font-size: 16px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+  .items {
+    flex-direction: column;
+    list-style-type: none;
+    padding: $gap;
+    width: 100%;
+    
+    &:not(:last-child) {
+      border-right: solid 1px #e4e4e4;
+    }
+    
+    .item {
+      width: 100%;
+      //border: solid 1px #ccc;
+      padding: $gap-lg $gap;
+      background: #fff;
+      box-shadow: 0px 2px 6px #ccc;
+      cursor: move;
+      
+      &:not(:last-child) {
+        margin-bottom: $gap;
+      }
+      &:hover {
+        box-shadow: 0px 2px 20px #aaa;
+      }
+      &.is-dragged {
+        opacity: 0.4;
+      }
+    }
+  }
 }
